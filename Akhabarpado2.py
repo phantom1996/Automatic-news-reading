@@ -17,13 +17,11 @@ k=0
 with sr.Microphone() as src:
     speak.Speak("Hi,this is Alex, tell me how many news you want to listen")
     audio=r.listen(src)
-    while True:
-        try:
-            text=r.recognize_google(audio)
-            k=int(text)
-            break
-        except:
-            speak.Speak("Sorry did not recognize ")
+    try:
+        text=r.recognize_google(audio)
+        k=int(text)
+    except:
+        speak.Speak("Sorry did not recognize ")
 cnt=1
 for item in r1['articles']:
     if k<=0:
