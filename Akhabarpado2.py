@@ -16,6 +16,7 @@ r=sr.Recognizer()
 k=0
 with sr.Microphone() as src:
     speak.Speak("Hi,this is Alex, tell me how many news you want to listen")
+    r.adjust_for_ambient_noise(src)
     audio=r.listen(src)
     try:
         text=r.recognize_google(audio)
